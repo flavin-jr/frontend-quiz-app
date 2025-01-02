@@ -7,13 +7,28 @@
 }
 
 body {
+  background-image: url("/assets/images/pattern-background-desktop-light.svg");
   height: 100vh;
+  max-width: 100%;
+  padding: 83px 140px;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  color: #313E51;
+  margin-bottom: 99px;
+}
+.theme-option div {
+  width: 48px;
+  height: 28px;
+  padding: 4;
+  background-color: #A729F5;
+  border-radius: 999px;
 }
 
 .main {
-  height: 100vh;
-  background-image: url("/assets/images/pattern-background-desktop-light.svg");
-  padding: 83px 140px;
   display: flex;
   justify-content: space-between;
 }
@@ -42,6 +57,29 @@ body {
   line-height: 150%;
   font-style: italic;
   color: #626C7F;
+}
+.main .options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.main .options-container .option {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(143, 160, 193, 0.14);
+  width: 564px;
+}
+.main .options-container .option p {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 100%;
+  font-style: normal;
+  color: #313E51;
 }
 
 /*# sourceMappingURL=styles.css.map */
