@@ -1,0 +1,56 @@
+$light-theme-box-color: #FFFFFF;
+$dark-theme-box-color: #3B4D66;
+$light-theme-text-color: #313E51;
+$dark-theme-text-color: #FFFFFF;
+$primary-color: #A729F5;
+$grey-navy: #626C7F;
+
+@mixin text ($size, $color , $weight: 500, $line-height: 100%, $font-style: normal) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $line-height;
+    font-style: $font-style;
+    color: $color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", serif;
+    color: $light-theme-box-color;
+}
+
+body {
+    height: 100vh;
+}
+
+.main {
+    height: 100vh;
+    background-image: url("/assets/images/pattern-background-desktop-light.svg");
+    padding: 83px 140px;
+    display: flex;
+    justify-content: space-between;
+
+    .welcome-container {
+
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        h1 {
+            @include text(64px, $light-theme-text-color, 300);
+
+            strong {
+                @include text(64px, $light-theme-text-color);
+
+            }
+
+        }
+
+        p {
+
+            @include text(20px, $grey-navy, 400, 150%, italic)
+        }
+    }
+}

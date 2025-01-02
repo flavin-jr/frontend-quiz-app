@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", serif;
+  color: #FFFFFF;
+}
+
+body {
+  height: 100vh;
+}
+
+.main {
+  height: 100vh;
+  background-image: url("/assets/images/pattern-background-desktop-light.svg");
+  padding: 83px 140px;
+  display: flex;
+  justify-content: space-between;
+}
+.main .welcome-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.main .welcome-container h1 {
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 100%;
+  font-style: normal;
+  color: #313E51;
+}
+.main .welcome-container h1 strong {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 100%;
+  font-style: normal;
+  color: #313E51;
+}
+.main .welcome-container p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 150%;
+  font-style: italic;
+  color: #626C7F;
+}
+
+/*# sourceMappingURL=styles.css.map */
