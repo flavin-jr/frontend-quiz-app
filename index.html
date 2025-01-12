@@ -15,11 +15,13 @@
 
 <body>
   <div class="theme-option">
-    <img src="/assets/images/icon-sun-light.svg" alt="icone do sol">
-    <div></div>
-    <img src="/assets/images/icon-moon-light.svg" alt="icone da lua">
+    <img src="/assets/images/icon-sun-dark.svg" alt="icone do sol">
+    <div>
+      <div class="toggle"></div>
+    </div>
+    <img src="/assets/images/icon-moon-dark.svg" alt="icone da lua">
   </div>
-  <div class="main">
+  <section class="main">
     <div class="welcome-container">
       <h1>Welcome to the <br> <strong>Frontend Quiz!</strong></h1>
       <p>Pick a subject to get started.</p>
@@ -42,7 +44,37 @@
         <p>Accessibility</p>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="html">
+    <div class="question-container">
+      <p class="question-number">Question 6 of 10</p>
+      <p class="question">Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for
+        normal text?</p>
+      <div>
+        <div></div>
+      </div>
+    </div>
+    <div class="answers-container">
+      <div class="answer active">
+        <div>A</div>
+        <p>4.5 : 1</p>
+      </div>
+      <div class="answer">
+        <div>B</div>
+        <p>4.5 : 1</p>
+      </div>
+      <div class="answer">
+        <div>C</div>
+        <p>4.5 : 1</p>
+      </div>
+      <div class="answer">
+        <div>D</div>
+        <p>4.5 : 1</p>
+      </div>
+      <button>Submit Answer</button>
+    </div>
+
+  </section>
 </body>
 
 <script src="index.js"></script>
