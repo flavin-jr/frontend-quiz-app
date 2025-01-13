@@ -23,7 +23,28 @@ body {
   color: #313E51;
   margin-bottom: 99px;
 }
-.theme-option div {
+.theme-option .subject {
+  display: none;
+  align-items: center;
+  gap: 24px;
+}
+.theme-option .subject img {
+  padding: 8px;
+  border-radius: 10px;
+}
+.theme-option .subject p {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 100%;
+  font-style: normal;
+  color: #313E51;
+}
+.theme-option .theme-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.theme-option .theme-container .toggle-container {
   width: 48px;
   height: 28px;
   padding: 4;
@@ -31,7 +52,7 @@ body {
   border-radius: 999px;
   padding: 4px;
 }
-.theme-option div .toggle {
+.theme-option .theme-container .toggle-container .toggle {
   width: 20px;
   height: 20px;
   border-radius: 100%;
@@ -40,7 +61,7 @@ body {
 }
 
 .main {
-  display: none;
+  display: flex;
   justify-content: space-between;
 }
 .main .welcome-container {
@@ -91,6 +112,22 @@ body {
   line-height: 100%;
   font-style: normal;
   color: #313E51;
+}
+.main .options-container .option img {
+  padding: 8px;
+  border-radius: 10px;
+}
+.main .options-container .option:nth-child(1n) img {
+  background-color: #FFF1E9;
+}
+.main .options-container .option:nth-child(2n) img {
+  background-color: #E0FDEF;
+}
+.main .options-container .option:nth-child(3n) img {
+  background-color: #EBF0FF;
+}
+.main .options-container .option:nth-child(4n) img {
+  background-color: #F6E7FF;
 }
 
 .html {
@@ -192,7 +229,7 @@ body {
 }
 
 .score {
-  display: flex;
+  display: none;
   gap: 143px;
 }
 .score .score-text-container p {

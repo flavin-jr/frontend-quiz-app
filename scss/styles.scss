@@ -58,26 +58,50 @@ body {
     color: $dark-navy;
     margin-bottom: 99px;
 
-    div {
-        width: 48px;
-        height: 28px;
-        padding: 4;
-        background-color: $primary-color;
-        border-radius: 999px;
-        padding: 4px;
+    .subject {
+        display: none;
+        align-items: center;
+        gap: 24px;
 
-        .toggle {
-            width: 20px;
-            height: 20px;
-            border-radius: 100%;
-            background-color: #FFFFFF;
-            cursor: pointer;
+        img {
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+
+
+        p {
+            @include text(28px, $dark-navy)
+        }
+    }
+
+    .theme-container {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .toggle-container {
+            width: 48px;
+            height: 28px;
+            padding: 4;
+            background-color: $primary-color;
+            border-radius: 999px;
+            padding: 4px;
+
+            .toggle {
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                background-color: #FFFFFF;
+                cursor: pointer;
+            }
         }
     }
 }
 
+
 .main {
-    display: none;
+    display: flex;
     justify-content: space-between;
 
     .welcome-container {
@@ -120,6 +144,40 @@ body {
 
             p {
                 @include text(28px, $dark-navy)
+            }
+
+            img {
+                padding: 8px;
+                border-radius: 10px;
+
+            }
+
+            &:nth-child(1n) {
+                img {
+
+                    background-color: #FFF1E9;
+                }
+            }
+
+            &:nth-child(2n) {
+                img {
+
+                    background-color: #E0FDEF;
+                }
+            }
+
+            &:nth-child(3n) {
+                img {
+
+                    background-color: #EBF0FF;
+                }
+            }
+
+            &:nth-child(4n) {
+                img {
+
+                    background-color: #F6E7FF;
+                }
             }
         }
     }
@@ -214,7 +272,7 @@ body {
 }
 
 .score {
-    display: flex;
+    display: none;
     gap: 143px;
 
     .score-text-container {
