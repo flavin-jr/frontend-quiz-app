@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
   <title>Frontend quiz app</title>
 </head>
 
@@ -62,10 +64,13 @@
       <div class="answer">
         <div>B</div>
         <p>4.5 : 1</p>
+        <!-- <img src="/assets/images/icon-correct.svg" alt="icone de resposta correta"> -->
       </div>
-      <div class="answer">
+      <div class="answer ">
         <div>C</div>
         <p>4.5 : 1</p>
+        <!-- <img src="/assets/images/icon-error.svg" alt="icone de resposta errada"> -->
+
       </div>
       <div class="answer">
         <div>D</div>
@@ -75,8 +80,27 @@
     </div>
 
   </section>
+  <section class="score">
+    <div class="score-text-container">
+      <p>Quiz completed <br>
+        <strong>You scored...</strong>
+      </p>
+    </div>
+    <div class="score-point-container">
+      <div class="score-box">
+        <div class="question-type">
+          <img src="/assets/images/icon-accessibility.svg" alt="Icone de acessibilidade">
+          <p>Accessibility</p>
+        </div>
+        <div class="score-box-container">
+          <p>8</p>
+          <p>out of 10</p>
+        </div>
+      </div>
+      <button>Play Again</button>
+    </div>
+  </section>
 </body>
-
 <script src="index.js"></script>
 
 </html>

@@ -94,7 +94,7 @@ body {
 }
 
 .html {
-  display: flex;
+  display: none;
   gap: 131px;
 }
 .html .question-container {
@@ -166,6 +166,7 @@ body {
   line-height: 100%;
   font-style: normal;
   color: #313E51;
+  flex: 1;
 }
 .html .answers-container .answer:hover div {
   background-color: #F6E7FF;
@@ -186,6 +187,102 @@ body {
   color: #FFFFFF;
   cursor: pointer;
 }
+.html .answers-container button:hover {
+  background: rgba(167, 41, 245, 0.5);
+}
+
+.score {
+  display: flex;
+  gap: 143px;
+}
+.score .score-text-container p {
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 100%;
+  font-style: normal;
+  color: #313E51;
+}
+.score .score-text-container p strong {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 100%;
+  font-style: normal;
+  color: #313E51;
+}
+.score .score-point-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.score .score-point-container .score-box {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(143, 160, 193, 0.14);
+  width: 564px;
+  padding: 48px;
+  justify-content: center;
+  gap: 40px;
+  flex-direction: column;
+}
+.score .score-point-container .score-box .question-type {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.score .score-point-container .score-box .question-type img {
+  padding: 8px;
+  background-color: #F6E7FF;
+  border-radius: 10px;
+}
+.score .score-point-container .score-box .question-type p {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 100%;
+  font-style: normal;
+  color: #313E51;
+}
+.score .score-point-container .score-box .score-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.score .score-point-container .score-box .score-box-container p:first-child {
+  font-size: 144px;
+  font-weight: 500;
+  line-height: 100%;
+  font-style: normal;
+  color: #313E51;
+}
+.score .score-point-container .score-box .score-box-container p:last-child {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 100%;
+  font-style: normal;
+  color: #626C7F;
+}
+.score .score-point-container button {
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 24px;
+  background-color: #A729F5;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 100%;
+  font-style: normal;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.score .score-point-container button:hover {
+  background: rgba(167, 41, 245, 0.5);
+}
 
 .active {
   border: 3px solid #A729F5;
@@ -193,6 +290,43 @@ body {
 .active div {
   background-color: #A729F5 !important;
   color: #FFFFFF !important;
+}
+
+.correct-answer {
+  border: 3px solid #26D782;
+}
+.correct-answer div {
+  background-color: #26D782 !important;
+  color: #FFFFFF !important;
+}
+
+.wrong-answer {
+  border: 3px solid #EE5454;
+}
+.wrong-answer div {
+  background-color: #EE5454 !important;
+  color: #FFFFFF !important;
+}
+
+.animation-active {
+  animation: move-right 0.3s forwards;
+}
+
+@keyframes move-right {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 20px;
+  }
+}
+@keyframes move-left {
+  from {
+    left: 55%;
+  }
+  to {
+    left: 5%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -5,6 +5,8 @@ $dark-theme-text-color: #FFFFFF;
 $primary-color: #A729F5;
 $grey-navy: #626C7F;
 $light-gray: #F4F6FA;
+$green: #26D782;
+$red: #EE5454;
 $drop-shadow: 0 16px 40px rgba(#8FA0C1, 0.14);
 
 @mixin text ($size, $color , $weight: 500, $line-height: 100%, $font-style: normal) {
@@ -124,7 +126,7 @@ body {
 }
 
 .html {
-    display: flex;
+    display: none;
     gap: 131px;
 
     .question-container {
@@ -178,7 +180,9 @@ body {
             }
 
             p {
-                @include text(28px, $dark-navy, 500)
+                @include text(28px, $dark-navy, 500);
+                flex: 1;
+
             }
 
             &:hover {
@@ -199,11 +203,100 @@ body {
             background-color: $primary-color;
             @include text(28px, #FFFFFF, 500);
             cursor: pointer;
+
+            &:hover {
+                background: rgba($primary-color, 0.5);
+            }
         }
     }
 
 
 }
+
+.score {
+    display: flex;
+    gap: 143px;
+
+    .score-text-container {
+        p {
+            @include text(64px, $dark-navy, 300);
+
+            strong {
+                @include text(64px, $dark-navy);
+
+            }
+
+        }
+    }
+
+    .score-point-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .score-box {
+            @include mainDiv();
+            padding: 48px;
+            justify-content: center;
+            gap: 40px;
+            flex-direction: column;
+
+            .question-type {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+
+                img {
+                    padding: 8px;
+                    background-color: #F6E7FF;
+                    border-radius: 10px;
+                }
+
+
+
+                p {
+                    @include text(28px, $dark-navy)
+                }
+            }
+
+            .score-box-container {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                p {
+                    &:first-child {
+
+                        @include text(144px, $dark-navy, 500);
+                    }
+
+                    &:last-child {
+                        @include text(24px, $grey-navy, 400);
+
+                    }
+                }
+
+            }
+        }
+
+        button {
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 24px;
+            background-color: $primary-color;
+            @include text(28px, #FFFFFF, 500);
+            cursor: pointer;
+
+            &:hover {
+                background: rgba($primary-color, 0.5);
+            }
+        }
+    }
+}
+
 
 .active {
     border: 3px solid $primary-color;
@@ -211,5 +304,47 @@ body {
     div {
         background-color: $primary-color !important;
         color: #FFFFFF !important;
+    }
+}
+
+.correct-answer {
+    border: 3px solid $green;
+
+    div {
+        background-color: $green !important;
+        color: #FFFFFF !important;
+    }
+}
+
+.wrong-answer {
+    border: 3px solid $red;
+
+    div {
+        background-color: $red !important;
+        color: #FFFFFF !important;
+    }
+}
+
+.animation-active {
+    animation: move-right 0.3s forwards;
+}
+
+@keyframes move-right {
+    from {
+        left: 0px;
+    }
+
+    to {
+        left: 20px;
+    }
+}
+
+@keyframes move-left {
+    from {
+        left: 55%;
+    }
+
+    to {
+        left: 5%;
     }
 }
