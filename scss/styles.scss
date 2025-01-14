@@ -48,6 +48,10 @@ body {
     height: 100vh;
     max-width: 100%;
     padding: 83px 140px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 85px;
 }
 
 .theme-option {
@@ -56,7 +60,7 @@ body {
     justify-content: end;
     gap: 16px;
     color: $dark-navy;
-    margin-bottom: 99px;
+    // margin-bottom: 99px;
 
     .subject {
         display: none;
@@ -193,6 +197,7 @@ body {
         flex-direction: column;
         gap: 27px;
         width: 465px;
+        height: 452px;
 
         .question-number {
             @include text(20px, $grey-navy, 400, 150%, italic)
@@ -201,6 +206,7 @@ body {
         .question {
             @include text(36px, $dark-navy , 500, 120%);
             margin-bottom: 120px;
+            flex: 1;
         }
 
         div {

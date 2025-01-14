@@ -48,11 +48,14 @@ $(document).ready(function () {
 
             $(".option").click(function (e) {
                 e.preventDefault();
-
-                const subject = $(this).children(':eq(1)').text();
-                const data = response.quizzes.filter(item => item.title === subject);
-                const finalData = data[0];
-                const questions = finalData.questions;
+                $(".answer").off('click');
+                $(".submit-btn").off('click');
+                let subject = $(this).children(':eq(1)').text();
+                console.log(subject)
+                let data = response.quizzes.filter(item => item.title === subject);
+                let finalData = data[0];
+                let questions = finalData.questions;
+                console.log(questions)
                 let currentIndex = 0
                 let currentScore = 0
                 let correctAnswer = ''
@@ -73,22 +76,37 @@ $(document).ready(function () {
                 correctAnswer = questions[currentIndex].answer
 
                 $(".answer").on('click', function (e) {
+                    let flag = true
                     $.map($(".answer"), function (value, index) {
-                        if (value.classList.contains('active')) {
+                        if (value.classList.contains('wrong-answer') || value.classList.contains('correct-answer')) {
 
-                            value.classList.remove('active')
+                            flag = false
                         }
                     });
-                    $(this).toggleClass('active')
-                    answerDiv = $(this)
+                    if (flag) {
+
+                        $.map($(".answer"), function (value, index) {
+                            if (value.classList.contains('active')) {
+
+                                value.classList.remove('active')
+                            }
+                        });
+                        $(this).toggleClass('active')
+                        answerDiv = $(this)
+                    }
                 })
+
+                console.log(currentIndex)
+                console.log(currentScore)
                 $(".submit-btn").click(function (e) {
+                    console.log(questions)
+                    console.log(subject)
                     e.preventDefault();
                     if ($(this).text() === 'Next Question') {
-                        console.log(currentScore)
+
+
                         currentIndex += 1
                         if (currentIndex > 9) {
-                            console.log('entrei aqui')
                             $(".html").css("display", "none")
                             $(".score").css("display", "flex")
                             $(".question-type").children().eq(0).attr({
@@ -99,6 +117,7 @@ $(document).ready(function () {
                             $(".question-type").children().eq(1).text(subject)
 
                             $(".score-box-container").children().eq(0).text(currentScore);
+                            currentIndex = 0
                             return
                         }
                         cleanAnswerDivs()
@@ -109,24 +128,47 @@ $(document).ready(function () {
                         correctAnswer = questions[currentIndex].answer
 
                         $(".answer").on('click', function (e) {
+                            let flag = true
                             $.map($(".answer"), function (value, index) {
-                                if (value.classList.contains('active')) {
+                                if (value.classList.contains('wrong-answer') || value.classList.contains('correct-answer')) {
 
-                                    value.classList.remove('active')
+                                    flag = false
                                 }
                             });
-                            $(this).toggleClass('active')
-                            answerDiv = $(this)
+                            if (flag) {
+
+                                $.map($(".answer"), function (value, index) {
+                                    if (value.classList.contains('active')) {
+
+                                        value.classList.remove('active')
+                                    }
+                                });
+                                $(this).toggleClass('active')
+                                answerDiv = $(this)
+                            }
                         })
 
                         return
                     }
-                    $(this).text('Next Question')
-                    const answerText = answerDiv.children(":eq(1)").text()
                     if (!answerDiv) {
-                        alert("marque uma alterntiva")
+                        const accessibilityDiv = `
+                        <div style="display:flex;align-items:center;justify-content:center;gap:8px;">
+                        <img src="/assets/images/icon-error.svg" alt="Ícone de error">
+                        <p style="font-size:24px;color:#EE5454">Please select an answer</p>
+                        </div>
+                        `;
+
+                        $(".answers-container").append(accessibilityDiv);
+                        setTimeout(() => {
+
+                            $(".answers-container").children().last().remove();
+                        }, 3000)
+
                         return
                     }
+                    $(this).text('Next Question')
+
+                    const answerText = answerDiv.children(":eq(1)").text()
                     if (answerText !== correctAnswer) {
                         answerDiv.append('<img src="/assets/images/icon-error.svg" alt="Icone de erro"></img>')
                         answerDiv.addClass('wrong-answer')
@@ -134,6 +176,8 @@ $(document).ready(function () {
                             return $(this).find("p").text() === correctAnswer;
                         });
                         resultado.append('<img src="/assets/images/icon-correct.svg" alt="Icone de erro"></img>')
+                        answerDiv = ''
+
 
                         return
                     }
@@ -141,11 +185,40 @@ $(document).ready(function () {
 
                     answerDiv.addClass('correct-answer')
                     currentScore += 1
+                    answerDiv = ''
 
                 });
 
-
             });
+
+            $(".play-again-btn").click(function (e) {
+                e.preventDefault();
+                $.map($(".answer"), function (value, index) {
+
+                    if ($(value).children().eq(2)) {
+                        $(value).children().eq(2).remove();
+                    }
+                    if ($(value).hasClass('wrong-answer')) {
+
+                        $(value).removeClass('wrong-answer');
+
+
+
+                    }
+                    if (value.classList.contains('correct-answer')) {
+
+                        value.classList.remove('correct-answer')
+                    }
+                    if ($(value).hasClass('active')) {
+                        $(value).removeClass('active');
+
+                    }
+                });
+                $(".score").css('display', 'none');
+
+                $(".main").css('display', 'flex');
+            });
+
         },
         error: function (xhr, status, error) {
             console.error("Error:", error); // Handle errors

@@ -13,6 +13,10 @@ body {
   height: 100vh;
   max-width: 100%;
   padding: 83px 140px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 85px;
 }
 
 .theme-option {
@@ -21,7 +25,6 @@ body {
   justify-content: end;
   gap: 16px;
   color: #313E51;
-  margin-bottom: 99px;
 }
 .theme-option .subject {
   display: none;
@@ -139,6 +142,7 @@ body {
   flex-direction: column;
   gap: 27px;
   width: 465px;
+  height: 452px;
 }
 .html .question-container .question-number {
   font-size: 20px;
@@ -154,6 +158,7 @@ body {
   font-style: normal;
   color: #313E51;
   margin-bottom: 120px;
+  flex: 1;
 }
 .html .question-container div {
   padding: 4px;
