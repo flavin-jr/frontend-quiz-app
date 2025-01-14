@@ -1,4 +1,28 @@
 $(document).ready(function () {
+
+    const refreshDisplay = (currentIndex, questions) => {
+        $(".question-number").text(`Question ${currentIndex + 1} of 10`)
+        $(".question").text(questions[currentIndex].question)
+        $(".progress").css('width', `${currentIndex + 1 / 10 * 100}%`)
+        $.map($(".answer"), function (value, index) {
+            value.children[1].innerText = questions[currentIndex].options[index];
+
+
+        });
+    }
+    const cleanAnswerDivs = () => {
+        $.map($(".answer"), function (value, index) {
+            if ($(value).hasClass("correct-answer")) {
+                $(value).removeClass("correct-answer")
+                $(value).removeClass("active")
+                $(value).children().eq(2).remove()
+                return
+            }
+            $(value).removeClass("active")
+            $(value).removeClass("wrong-answer")
+            $(value).children().eq(2).remove()
+        });
+    }
     $.ajax({
         url: "/data.json",
         type: "GET",
@@ -26,6 +50,10 @@ $(document).ready(function () {
                 const data = response.quizzes.filter(item => item.title === subject);
                 const finalData = data[0];
                 const questions = finalData.questions;
+                let currentIndex = 0
+                let currentScore = 0
+                let correctAnswer = ''
+                let answerDiv = ''
                 $(".main").css("display", "none")
                 $(".theme-option").css("justify-content", "space-between")
                 $(".subject").css("display", "flex")
@@ -37,6 +65,67 @@ $(document).ready(function () {
 
                 $(".subject").children(':eq(1)').text(finalData.title)
                 $(".html").css("display", "flex")
+                refreshDisplay(currentIndex, questions)
+
+                correctAnswer = questions[currentIndex].answer
+
+                $(".answer").on('click', function (e) {
+                    $.map($(".answer"), function (value, index) {
+                        if (value.classList.contains('active')) {
+
+                            value.classList.remove('active')
+                        }
+                    });
+                    $(this).toggleClass('active')
+                    answerDiv = $(this)
+                })
+                $(".submit-btn").click(function (e) {
+                    e.preventDefault();
+                    if ($(this).text() === 'Next Question') {
+
+                        cleanAnswerDivs()
+
+                        $(this).text('Submit Answer')
+                        currentIndex += 1
+                        refreshDisplay(currentIndex, questions)
+
+                        correctAnswer = questions[currentIndex].answer
+
+                        $(".answer").on('click', function (e) {
+                            $.map($(".answer"), function (value, index) {
+                                if (value.classList.contains('active')) {
+
+                                    value.classList.remove('active')
+                                }
+                            });
+                            $(this).toggleClass('active')
+                            answerDiv = $(this)
+                        })
+
+                        return
+                    }
+                    $(this).text('Next Question')
+                    const answerText = answerDiv.children(":eq(1)").text()
+                    if (!answerDiv) {
+                        alert("marque uma alterntiva")
+                        return
+                    }
+                    if (answerText !== correctAnswer) {
+                        answerDiv.append('<img src="/assets/images/icon-error.svg" alt="Icone de erro"></img>')
+                        answerDiv.addClass('wrong-answer')
+                        const resultado = $(".answer").filter(function () {
+                            return $(this).find("p").text() === correctAnswer;
+                        });
+                        resultado.append('<img src="/assets/images/icon-correct.svg" alt="Icone de erro"></img>')
+
+                        return
+                    }
+                    answerDiv.append('<img src="/assets/images/icon-correct.svg" alt="Icone de erro"></img>')
+
+                    answerDiv.addClass('correct-answer')
+                    currentScore += 1
+
+                });
 
 
             });

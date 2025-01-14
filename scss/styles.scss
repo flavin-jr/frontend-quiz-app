@@ -185,12 +185,14 @@ body {
 
 .html {
     display: none;
-    gap: 131px;
+    justify-content: space-between;
+
 
     .question-container {
         display: flex;
         flex-direction: column;
         gap: 27px;
+        width: 465px;
 
         .question-number {
             @include text(20px, $grey-navy, 400, 150%, italic)
