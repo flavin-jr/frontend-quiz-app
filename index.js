@@ -3,7 +3,7 @@ $(document).ready(function () {
     const refreshDisplay = (currentIndex, questions) => {
         $(".question-number").text(`Question ${currentIndex + 1} of 10`)
         $(".question").text(questions[currentIndex].question)
-        $(".progress").css('width', `${currentIndex + 1 / 10 * 100}%`)
+        $(".progress").css('width', `${(currentIndex + 1) / 10 * 100}%`)
         $.map($(".answer"), function (value, index) {
             value.children[1].innerText = questions[currentIndex].options[index];
 
@@ -36,9 +36,12 @@ $(document).ready(function () {
                 'JavaScript': "#EBF0FF",
                 'Accessibility': "#F6E7FF",
             }
+
             $(".toggle").click(function (e) {
                 e.preventDefault();
                 console.log('on')
+
+
                 $(this).addClass("animation-active");
 
             });
@@ -82,11 +85,25 @@ $(document).ready(function () {
                 $(".submit-btn").click(function (e) {
                     e.preventDefault();
                     if ($(this).text() === 'Next Question') {
+                        console.log(currentScore)
+                        currentIndex += 1
+                        if (currentIndex > 9) {
+                            console.log('entrei aqui')
+                            $(".html").css("display", "none")
+                            $(".score").css("display", "flex")
+                            $(".question-type").children().eq(0).attr({
+                                'src': finalData.icon,
+                                'alt': `Icone de ${subject}`
+                            })
+                            $(".question-type").children().eq(0).css('background-color', colors[subject])
+                            $(".question-type").children().eq(1).text(subject)
 
+                            $(".score-box-container").children().eq(0).text(currentScore);
+                            return
+                        }
                         cleanAnswerDivs()
 
                         $(this).text('Submit Answer')
-                        currentIndex += 1
                         refreshDisplay(currentIndex, questions)
 
                         correctAnswer = questions[currentIndex].answer
