@@ -39,11 +39,16 @@ $(document).ready(function () {
 
             $(".toggle").click(function (e) {
                 e.preventDefault();
-                console.log('on')
+                if ($(".toggle").hasClass('active-animation')) {
 
+                    $(".toggle").removeClass('active-animation')
+                    $(".toggle").addClass('deactivate')
+                    return
+                }
+                $(".toggle").removeClass('deactivate')
+                $(".toggle").addClass('active-animation')
 
-                $(this).addClass("animation-active");
-
+                console.log('oioi');
             });
 
             $(".option").click(function (e) {

@@ -50,17 +50,43 @@ body {
 .theme-option .theme-container .toggle-container {
   width: 48px;
   height: 28px;
-  padding: 4;
   background-color: #A729F5;
   border-radius: 999px;
   padding: 4px;
+  position: relative;
 }
 .theme-option .theme-container .toggle-container .toggle {
   width: 20px;
   height: 20px;
   border-radius: 100%;
   background-color: #FFFFFF;
+  position: absolute;
   cursor: pointer;
+}
+
+@keyframes move-right {
+  from {
+    left: 4px;
+  }
+  to {
+    left: calc(100% - 24px);
+  }
+}
+/* Animation when toggled to the left */
+@keyframes move-left {
+  from {
+    right: 4px;
+  }
+  to {
+    right: calc(100% - 24px);
+  }
+}
+.active-animation {
+  animation: move-right 0.3s forwards;
+}
+
+.deactivate {
+  animation: move-left 0.3s forwards;
 }
 
 .main {
