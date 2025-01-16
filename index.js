@@ -43,12 +43,37 @@ $(document).ready(function () {
 
                     $(".toggle").removeClass('active-animation')
                     $(".toggle").addClass('deactivate')
+                    $("body").removeClass('dark-theme')
+                    $("h1").removeClass('dark-theme-text')
+                    $("p").removeClass('dark-theme-text')
+                    $("strong").removeClass('dark-theme-text')
+                    $(".option").removeClass('dark-theme-div');
+                    $(".answer").removeClass('dark-theme-div');
+                    $(".score-box").removeClass('dark-theme-div');
+                    $('.theme-container').children().eq(2).attr({
+                        'src': '/assets/images/icon-moon-dark.svg'
+                    })
+                    $('.theme-container').children().eq(0).attr({
+                        'src': '/assets/images/icon-sun-dark.svg'
+                    })
+
                     return
                 }
                 $(".toggle").removeClass('deactivate')
                 $(".toggle").addClass('active-animation')
-
-                console.log('oioi');
+                $("body").addClass('dark-theme')
+                $("h1").addClass('dark-theme-text')
+                $("p").addClass('dark-theme-text')
+                $("strong").addClass('dark-theme-text')
+                $(".option").addClass('dark-theme-div');
+                $(".answer").addClass('dark-theme-div');
+                $(".score-box").addClass('dark-theme-div');
+                $('.theme-container').children().eq(2).attr({
+                    'src': '/assets/images/icon-moon-light.svg'
+                })
+                $('.theme-container').children().eq(0).attr({
+                    'src': '/assets/images/icon-sun-light.svg'
+                })
             });
 
             $(".option").click(function (e) {
@@ -199,7 +224,11 @@ $(document).ready(function () {
             $(".play-again-btn").click(function (e) {
                 e.preventDefault();
                 $.map($(".answer"), function (value, index) {
-
+                    $('.subject').children().eq(0).attr({
+                        'src': '',
+                        'alt': ''
+                    });
+                    $('.subject').children().eq(1).text('')
                     if ($(value).children().eq(2)) {
                         $(value).children().eq(2).remove();
                     }
