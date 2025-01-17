@@ -65,7 +65,7 @@ span.dark-theme-text {
 }
 
 body {
-    background: $light-gray url("/assets/images/pattern-background-desktop-light.svg");
+    background: $light-gray url("assets/images/pattern-background-desktop-light.svg");
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -88,7 +88,7 @@ body {
 }
 
 .dark-theme {
-    background: #313E51 url("/assets/images/pattern-background-desktop-dark.svg");
+    background: #313E51 url("assets/images/pattern-background-desktop-dark.svg");
     background-position: center;
     background-size: cover;
 
