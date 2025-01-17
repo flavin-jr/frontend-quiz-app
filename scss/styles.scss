@@ -23,11 +23,20 @@ $drop-shadow: 0 16px 40px rgba(#8FA0C1, 0.14);
     display: flex;
     align-items: center;
     gap: 32px;
-    width: 100%;
     background-color: #FFFFFF;
     border-radius: 24px;
     box-shadow: $drop-shadow;
     width: 564px;
+
+    @media (max-width:870px) {
+        width: 100%;
+    }
+
+    @media (max-width:590px) {
+        gap: 16px;
+        padding: 12px;
+        border-radius: 12px;
+    }
 }
 
 * {
@@ -66,6 +75,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 85px;
+
+    @media (max-width:870px) {
+        padding: 64px 54px;
+        gap: 62px;
+    }
+
+    @media (max-width:590px) {
+        padding: 26px 24px;
+        gap: 32px;
+    }
 }
 
 .dark-theme {
@@ -82,22 +101,42 @@ body {
     justify-content: end;
     gap: 16px;
     color: $dark-navy;
+
     // margin-bottom: 99px;
+    @media (max-width:590px) {
+        padding-bottom: 16px;
+    }
 
     .subject {
         display: none;
         align-items: center;
         gap: 24px;
 
+        @media (max-width:590px) {
+            gap: 16px;
+
+        }
+
         img {
             padding: 8px;
             border-radius: 10px;
+
+            @media (max-width:590px) {
+                padding: 6px;
+                height: 40px;
+                width: 40px;
+            }
+
         }
 
 
 
         p {
-            @include text(28px, $dark-navy)
+            @include text(28px, $dark-navy);
+
+            @media (max-width:590px) {
+                font-size: 18px;
+            }
         }
     }
 
@@ -105,6 +144,15 @@ body {
         display: flex;
         align-items: center;
         gap: 16px;
+
+        @media (max-width:590px) {
+            gap: 8px;
+
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
 
         .toggle-container {
             width: 48px;
@@ -114,6 +162,11 @@ body {
             padding: 4px;
             position: relative;
 
+            @media (max-width:590px) {
+                width: 32px;
+                height: 20px;
+            }
+
             .toggle {
                 width: 20px;
                 height: 20px;
@@ -121,6 +174,11 @@ body {
                 background-color: #FFFFFF;
                 position: absolute;
                 cursor: pointer;
+
+                @media (max-width:590px) {
+                    width: 12px;
+                    height: 12px;
+                }
             }
         }
     }
@@ -159,34 +217,54 @@ body {
     display: flex;
     justify-content: space-between;
 
+    @media (max-width:870px) {
+        flex-direction: column;
+        gap: 64px;
+    }
+
+    @media (max-width:590px) {
+        gap: 40px;
+    }
+
     .welcome-container {
 
         display: flex;
         flex-direction: column;
         gap: 48px;
 
+        @media (max-width:870px) {
+
+            gap: 16px;
+        }
+
         h1 {
             @include text(64px, $dark-navy, 300);
+
+            @media (max-width:590px) {
+
+                font-size: 40px;
+            }
 
             strong {
                 @include text(64px, $dark-navy);
 
+                @media (max-width:590px) {
+
+                    font-size: 40px;
+                }
             }
 
         }
 
-        // h1.dark-theme-text {
-        //     color: #FFFFFF;
-
-        //     strong {
-        //         color: #FFFFFF;
-        //     }
-
-        // }
 
         span {
 
-            @include text(20px, $grey-navy, 400, 150%, italic)
+            @include text(20px, $grey-navy, 400, 150%, italic);
+
+            @media (max-width:590px) {
+
+                font-size: 14px;
+            }
         }
     }
 
@@ -195,26 +273,51 @@ body {
         flex-direction: column;
         gap: 24px;
 
+        @media (max-width:590px) {
+            gap: 12px;
+        }
+
         .option {
+
             padding: 20px;
             display: flex;
             align-items: center;
             gap: 32px;
-            width: 100%;
+
             background-color: #FFFFFF;
             border-radius: 24px;
             box-shadow: $drop-shadow;
             width: 564px;
             cursor: pointer;
 
+            @media (max-width:870px) {
+                width: 100%;
+            }
+
+            @media (max-width:590px) {
+                gap: 16px;
+                padding: 12px;
+                border-radius: 12px;
+            }
+
+
             p {
-                @include text(28px, $dark-navy)
+                @include text(28px, $dark-navy);
+
+                @media (max-width:590px) {
+                    font-size: 18px;
+                }
             }
 
             img {
                 padding: 8px;
                 border-radius: 10px;
 
+                @media (max-width:590px) {
+                    padding: 6px;
+                    width: 40px;
+                    height: 40px;
+                }
             }
 
             &:nth-child(1n) {
@@ -252,6 +355,14 @@ body {
     display: none;
     justify-content: space-between;
 
+    @media (max-width:870px) {
+        flex-direction: column;
+        gap: 64px;
+    }
+
+    @media (max-width:590px) {
+        gap: 40px;
+    }
 
     .question-container {
         display: flex;
@@ -260,14 +371,35 @@ body {
         width: 465px;
         height: 452px;
 
+        @media (max-width:870px) {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width:590px) {
+            gap: 12px;
+        }
+
         .question-number {
-            @include text(20px, $grey-navy, 400, 150%, italic)
+            @include text(20px, $grey-navy, 400, 150%, italic);
+
+            @media (max-width:590px) {
+                font-size: 14px;
+            }
         }
 
         .question {
             @include text(36px, $dark-navy , 500, 120%);
             margin-bottom: 120px;
             flex: 1;
+
+            @media (max-width:870px) {
+                margin-bottom: auto;
+            }
+
+            @media (max-width:590px) {
+                font-size: 20px;
+            }
         }
 
         div {
@@ -289,6 +421,10 @@ body {
         flex-direction: column;
         gap: 24px;
 
+        @media (max-width:590px) {
+            gap: 12px;
+        }
+
         .answer {
             @include mainDiv();
             cursor: pointer;
@@ -303,12 +439,22 @@ body {
                 width: 56px;
                 height: 56px;
                 background-color: $light-gray ;
-                @include text(28px, $grey-navy, 500)
+                @include text(28px, $grey-navy, 500);
+
+                @media (max-width:590px) {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 18px;
+                }
             }
 
             p {
                 @include text(28px, $dark-navy, 500);
                 flex: 1;
+
+                @media (max-width:590px) {
+                    font-size: 18px;
+                }
 
             }
 
@@ -334,6 +480,12 @@ body {
             &:hover {
                 background: rgba($primary-color, 0.5);
             }
+
+            @media (max-width:590px) {
+                font-size: 18px;
+                padding: 19px;
+                border-radius: 12px;
+            }
         }
     }
 
@@ -345,12 +497,32 @@ body {
     gap: 143px;
     justify-content: space-between;
 
+    @media(max-width:870px) {
+        flex-direction: column;
+        gap: 64px;
+    }
+
+    @media (max-width:590px) {
+
+        gap: 40px;
+    }
+
     .score-text-container {
         p {
             @include text(64px, $dark-navy, 300);
 
+            @media (max-width:590px) {
+
+                font-size: 40px;
+            }
+
             strong {
                 @include text(64px, $dark-navy);
+
+                @media (max-width:590px) {
+
+                    font-size: 40px;
+                }
 
             }
 
@@ -362,6 +534,7 @@ body {
         flex-direction: column;
         gap: 32px;
 
+
         .score-box {
             @include mainDiv();
             padding: 48px;
@@ -369,21 +542,43 @@ body {
             gap: 40px;
             flex-direction: column;
 
+            @media (max-width:590px) {
+
+                padding: 32px;
+            }
+
             .question-type {
                 display: flex;
                 align-items: center;
                 gap: 24px;
 
+                @media (max-width:590px) {
+
+                    gap: 16px;
+                }
+
                 img {
                     padding: 8px;
                     background-color: #F6E7FF;
                     border-radius: 10px;
+
+                    @media (max-width:590px) {
+
+                        padding: 6px;
+                        width: 40px;
+                        height: 40px;
+                    }
                 }
 
 
 
                 p {
-                    @include text(28px, $dark-navy)
+                    @include text(28px, $dark-navy);
+
+                    @media (max-width:590px) {
+
+                        font-size: 18px;
+                    }
                 }
             }
 
@@ -396,10 +591,20 @@ body {
 
 
                     @include text(144px, $dark-navy, 500);
+
+                    @media (max-width:590px) {
+
+                        font-size: 88px;
+                    }
                 }
 
                 span {
                     @include text(24px, $grey-navy, 400);
+
+                    @media (max-width:590px) {
+
+                        font-size: 18px;
+                    }
 
                 }
             }
@@ -420,6 +625,12 @@ body {
 
         &:hover {
             background: rgba($primary-color, 0.5);
+        }
+
+        @media (max-width:590px) {
+            font-size: 18px;
+            padding: 19px;
+            border-radius: 12px;
         }
     }
 }
@@ -450,29 +661,5 @@ body {
     div {
         background-color: $red !important;
         color: #FFFFFF !important;
-    }
-}
-
-.animation-active {
-    animation: move-right 0.3s forwards;
-}
-
-@keyframes move-right {
-    from {
-        left: 0px;
-    }
-
-    to {
-        left: 20px;
-    }
-}
-
-@keyframes move-left {
-    from {
-        left: 55%;
-    }
-
-    to {
-        left: 5%;
     }
 }

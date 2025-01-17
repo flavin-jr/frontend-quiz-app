@@ -126,11 +126,9 @@ $(document).ready(function () {
                     }
                 })
 
-                console.log(currentIndex)
-                console.log(currentScore)
+
                 $(".submit-btn").click(function (e) {
-                    console.log(questions)
-                    console.log(subject)
+
                     e.preventDefault();
                     if ($(this).text() === 'Next Question') {
 
