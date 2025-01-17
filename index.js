@@ -51,10 +51,10 @@ $(document).ready(function () {
                     $(".answer").removeClass('dark-theme-div');
                     $(".score-box").removeClass('dark-theme-div');
                     $('.theme-container').children().eq(2).attr({
-                        'src': '/assets/images/icon-moon-dark.svg'
+                        'src': 'assets/images/icon-moon-dark.svg'
                     })
                     $('.theme-container').children().eq(0).attr({
-                        'src': '/assets/images/icon-sun-dark.svg'
+                        'src': 'assets/images/icon-sun-dark.svg'
                     })
 
                     return
@@ -69,10 +69,10 @@ $(document).ready(function () {
                 $(".answer").addClass('dark-theme-div');
                 $(".score-box").addClass('dark-theme-div');
                 $('.theme-container').children().eq(2).attr({
-                    'src': '/assets/images/icon-moon-light.svg'
+                    'src': 'assets/images/icon-moon-light.svg'
                 })
                 $('.theme-container').children().eq(0).attr({
-                    'src': '/assets/images/icon-sun-light.svg'
+                    'src': 'assets/images/icon-sun-light.svg'
                 })
             });
 
