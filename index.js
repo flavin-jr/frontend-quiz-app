@@ -24,7 +24,7 @@ $(document).ready(function () {
         });
     }
     $.ajax({
-        url: "/data.json",
+        url: "data.json",
         type: "GET",
         data: {},
         dataType: "json",
